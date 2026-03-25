@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Juan Machine</title>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Decimal</a></li>
+                <li id="active"><a href="binario.html">Binário</a></li>
+                <li><a href="octal.html">Octal</a></li>
+                <li><a href="hexadecimal.html">Hexadecimal</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+  <div class="container">
+        <h1>Juan Machine</h1>
+
+        <h3>Digite um número <span id="estilo">binário</span>:</h3>
+        <input id="demo1" type="text" placeholder="Insira">
+        <br><br>
+
+        <button class="conversao" onclick="tocarSom(); converter()">Converter</button>
+
+        <h3>Resultados:</h3>
+        <br>
+        <div class="resultado" id="mensagem"></div>
+       
+</div>
+</main>
+<footer>
+
+</footer>
+<audio id="somTecla" src="u_edtmwfwu7c-beep-329314.mp3"></audio>
+</body>
+    <script>
+        function tocarSom() {
+    var som = document.getElementById("somTecla");
+    som.currentTime = 0;
+    som.play();
+}
+     function converter() {
+    var binario = parseInt(demo1.value, 2);
+
+    mensagem.innerHTML = `
+        <p>Decimal: ${binario}</p>
+        <p>Octal: ${binario.toString(8)}</p>
+        <p>Hexadecimal: ${binario.toString(16).toUpperCase()}</p>
+    `;
+
+    mensagem.classList.remove("mostrar");
+
+    setTimeout(() => {
+        mensagem.classList.add("mostrar");
+    }, 50);
+}
+    </script>
+
+</html>
